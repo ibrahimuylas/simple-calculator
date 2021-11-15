@@ -1,0 +1,19 @@
+.key {
+  margin: 5px;
+  padding: 15px;
+  width: 80px;
+  font-size: large;
+  cursor: pointer;
+}
+
+.key-w2 {
+  width: 170px;
+}
+
+.key-w3 {
+  width: 260px;
+}
+
+.key-w4 {
+  width: 340px;
+}

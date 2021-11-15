@@ -1,0 +1,11 @@
+.output {
+  margin: 5px;
+}
+
+.output input {
+  margin: 5px;
+  padding: 10px;
+  font-size: large;
+  width: 328px;
+  text-align: right;
+}
