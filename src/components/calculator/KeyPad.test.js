@@ -21,6 +21,7 @@ test("renders all necessary keys", () => {
   expect(screen.getByTestId("key-AC")).toBeDefined();
   expect(screen.getByTestId("key-=")).toBeDefined();
   expect(screen.getByTestId("key-.")).toBeDefined();
+  expect(screen.getByTestId("key-Square-Root")).toBeDefined();
 });
 
 test("returns correct output after click a key", () => {
@@ -72,4 +73,29 @@ test("should clear output after calculation when AC is clicked", () => {
   screen.getByTestId("key-AC").click();
 
   expect(output).toEqual("");
+});
+
+test("should return correct result when clicked square root", () => {
+  let output = "";
+
+  const handleOnChange = (value) => (output = value);
+  render(<KeyPad onChange={handleOnChange} />);
+  screen.getByTestId("key-2").click();
+  screen.getByTestId("key-5").click();
+  screen.getByTestId("key-Square-Root").click();
+
+  expect(output).toEqual(5);
+});
+
+test("should return correct result after calculation when clicked square root", () => {
+  let output = "";
+
+  const handleOnChange = (value) => (output = value);
+  render(<KeyPad onChange={handleOnChange} />);
+  screen.getByTestId("key-2").click();
+  screen.getByTestId("key-+").click();
+  screen.getByTestId("key-7").click();
+  screen.getByTestId("key-Square-Root").click();
+
+  expect(output).toEqual(3);
 });

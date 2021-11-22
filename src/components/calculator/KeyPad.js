@@ -1,7 +1,10 @@
 import "./KeyPad.css";
 import React from "react";
 import Key from "./Key";
-import { EvaluateExpression } from "../../services/calculator-service.js";
+import {
+  EvaluateExpression,
+  SquareRoot,
+} from "../../services/calculator-service.js";
 import { CalculatorOperations } from "../../constants/calculator";
 
 const KeyPad = ({ onChange }) => {
@@ -13,6 +16,8 @@ const KeyPad = ({ onChange }) => {
       output = EvaluateExpression(result);
     } else if (e.value === "AC") {
       output = "";
+    } else if (e.value === "Square-Root") {
+      output = SquareRoot(output);
     } else output += e.value;
 
     setResult(output);
@@ -54,6 +59,9 @@ const KeyPad = ({ onChange }) => {
         <Key className="key-w2" value={0} onClick={handleOnClick} />
         <Key value={CalculatorOperations.Dot} onClick={handleOnClick} />
         <Key value={CalculatorOperations.Equality} onClick={handleOnClick} />
+      </div>
+      <div className="keypad-row">
+        <Key className="key-w4" value="Square-Root" onClick={handleOnClick} />
       </div>
     </div>
   );
